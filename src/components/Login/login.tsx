@@ -1,7 +1,7 @@
 import styles from "./login.module.css"
 import { Link, useNavigate, type NavigateFunction } from "react-router-dom"
 import type { values_Login } from "../../types/types"
-import { use, useState } from "react"
+import { useState } from "react"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../firebase"
 import { InputControl } from "../Inputs/Inputs"
@@ -12,7 +12,7 @@ export function Login() {
         email: "",
         password: "",
     })
-    const [submitButton, setsubmitButton] = useState<boolean>(false)
+    const [_submitButton, setsubmitButton] = useState<boolean>(false)
     const [errorMsg, seterrorMsg] = useState<string>("")
     const Loguearse = () => {
         if (!values.email || !values.password) {
@@ -22,7 +22,7 @@ export function Login() {
         seterrorMsg("")
         setsubmitButton(false)
         signInWithEmailAndPassword(auth, values.email, values.password)
-            .then(async (res) => {
+            .then(async (_res) => {
                 setsubmitButton(false)
                 navigate("/")
             })
