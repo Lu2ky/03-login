@@ -1,11 +1,10 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import type { homeProps } from "../../types/types"
 import { auth } from "../../firebase"
 import styles from "./Home.module.css"
 
 function logOut() {
     return auth.signOut()
-    navigate("/")
 }
 
 export function Home({ name }: homeProps) {
